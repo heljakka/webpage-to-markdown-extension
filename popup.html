@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Markdown Converter</title>
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+    <main class="popup-shell">
+      <section class="hero">
+        <p class="eyebrow">Chrome Extension</p>
+        <h1>Markdown Converter</h1>
+        <p class="hero-copy">
+          Extract the main content of the active page, convert it to Markdown, and
+          pull in accessible iframe content when available.
+        </p>
+      </section>
+
+      <section class="controls-panel">
+        <div class="field-grid">
+          <label class="field">
+            <span>Heading style</span>
+            <select id="headingStyle">
+              <option value="atx">ATX (#)</option>
+              <option value="setext">Setext (=)</option>
+            </select>
+          </label>
+
+          <label class="field">
+            <span>List marker</span>
+            <select id="bulletMarker">
+              <option value="-">Dash (-)</option>
+              <option value="*">Asterisk (*)</option>
+              <option value="+">Plus (+)</option>
+            </select>
+          </label>
+        </div>
+
+        <button id="convertButton" class="primary-button" type="button">
+          Convert Current Page
+        </button>
+      </section>
+
+      <p id="status" class="status status-idle" role="status" aria-live="polite">
+        Ready to convert the active tab.
+      </p>
+
+      <label class="output-label" for="markdownOutput">Markdown output</label>
+      <textarea
+        id="markdownOutput"
+        class="output"
+        spellcheck="false"
+        placeholder="Converted Markdown will appear here."
+      ></textarea>
+
+      <div class="action-row">
+        <button id="copyButton" class="secondary-button" type="button" disabled>
+          Copy Markdown
+        </button>
+        <button id="downloadButton" class="secondary-button" type="button" disabled>
+          Download .md
+        </button>
+      </div>
+    </main>
+
+    <script type="module" src="popup.js"></script>
+  </body>
+</html>
